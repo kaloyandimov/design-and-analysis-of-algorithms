@@ -14,4 +14,8 @@ void selection_sort(int arr[], int n);
 
 void bubble_sort(int arr[], int n);
 
+void merge_sort(int arr[], int n);
+
+void quicksort(int arr[], int n);
+
 #endif /* algorithm_hpp */

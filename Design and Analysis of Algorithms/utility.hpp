@@ -10,6 +10,8 @@
 
 void swap(int& x, int& y);
 
+void copy(int src[], int n, int dst[]);
+
 void print(int arr[], int n);
 
 #endif /* utility_hpp */

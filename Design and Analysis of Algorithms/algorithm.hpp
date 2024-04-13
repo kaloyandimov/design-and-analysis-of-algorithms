@@ -18,4 +18,6 @@ void merge_sort(int arr[], int n);
 
 void quicksort(int arr[], int n);
 
+void heap_sort(int arr[], int n);
+
 #endif /* algorithm_hpp */

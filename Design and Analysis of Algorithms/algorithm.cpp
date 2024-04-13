@@ -9,6 +9,7 @@
 
 #include <limits.h>
 
+#include "heap.hpp"
 #include "utility.hpp"
 
 void insertion_sort(int arr[], int n) {
@@ -128,4 +129,13 @@ void quicksort(int arr[], int l, int h) {
 
 void quicksort(int arr[], int n) {
     quicksort(arr, 0, n);
+}
+
+void heap_sort(int arr[], int n) {
+    build_heap(arr, n);
+    
+    for (int i = n - 1; !is_root(i); i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
 }

@@ -139,3 +139,26 @@ void heap_sort(int arr[], int n) {
         heapify(arr, i, 0);
     }
 }
+
+void counting_sort(int arr[], int n, int k) {
+    int* count = new int[k + 1]{};
+    int* result = new int[n];
+    
+    for (int i = 0; i < n; i++) {
+        count[arr[i]]++;
+    }
+    
+    for (int i = 1; i < k + 1; i++) {
+        count[i] += count[i - 1];
+    }
+    
+    for (int i = n - 1; i >= 0; i--) {
+        result[count[arr[i]] - 1] = arr[i];
+        count[arr[i]]--;
+    }
+    
+    copy(result, n, arr);
+    
+    delete[] result;
+    delete[] count;
+}

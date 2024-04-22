@@ -20,4 +20,6 @@ void quicksort(int arr[], int n);
 
 void heap_sort(int arr[], int n);
 
+void counting_sort(int arr[], int n, int k);
+
 #endif /* algorithm_hpp */

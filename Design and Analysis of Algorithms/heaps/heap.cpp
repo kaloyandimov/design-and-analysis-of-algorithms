@@ -6,7 +6,6 @@
 //
 
 #include "heap.hpp"
-
 #include "utility.hpp"
 
 int left(int i) {
@@ -85,5 +84,14 @@ void heapify(int arr[], int n, int i) {
 void build_heap(int arr[], int n) {
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapify(arr, n, i);
+    }
+}
+
+void heap_sort(int arr[], int n) {
+    build_heap(arr, n);
+    
+    for (int i = n - 1; !is_root(i); i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
     }
 }

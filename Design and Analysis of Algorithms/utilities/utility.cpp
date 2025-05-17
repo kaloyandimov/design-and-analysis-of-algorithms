@@ -5,9 +5,9 @@
 //  Created by Kaloyan Dimov on 9.04.24.
 //
 
-#include "utility.hpp"
-
 #include <iostream>
+
+#include "utility.hpp"
 
 void swap(int& x, int& y) {
     int z = x;

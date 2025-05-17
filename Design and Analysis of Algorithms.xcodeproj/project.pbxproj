@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C07F94422BC5B0C20042C66E /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C07F94402BC5B0C20042C66E /* utility.cpp */; };
-		C07F94482BC952E10042C66E /* algorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C07F94462BC952E10042C66E /* algorithm.cpp */; };
 		C07F944B2BCA76970042C66E /* heap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C07F94492BCA76970042C66E /* heap.cpp */; };
+		C0BF7B002DD7CF9700D755FC /* simple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7AFE2DD7CF9700D755FC /* simple.cpp */; };
+		C0BF7B032DD7CFAF00D755FC /* efficient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7B012DD7CFAF00D755FC /* efficient.cpp */; };
+		C0BF7B072DD7D13B00D755FC /* distribution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7B052DD7D13B00D755FC /* distribution.cpp */; };
+		C0E8D5AD2DBBF0E600060588 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E8D5AB2DBBF0E600060588 /* graph.cpp */; };
 		C0F4E5052BC5AB3500A7BAFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0F4E5042BC5AB3500A7BAFC /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -26,12 +29,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C06677062BD71CFE0070E89A /* sort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = sort.hpp; sourceTree = "<group>"; };
 		C07F94402BC5B0C20042C66E /* utility.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = utility.cpp; sourceTree = "<group>"; };
 		C07F94412BC5B0C20042C66E /* utility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
-		C07F94462BC952E10042C66E /* algorithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = algorithm.cpp; sourceTree = "<group>"; };
-		C07F94472BC952E10042C66E /* algorithm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = algorithm.hpp; sourceTree = "<group>"; };
 		C07F94492BCA76970042C66E /* heap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = heap.cpp; sourceTree = "<group>"; };
 		C07F944A2BCA76970042C66E /* heap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = heap.hpp; sourceTree = "<group>"; };
+		C0BF7AFE2DD7CF9700D755FC /* simple.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simple.cpp; sourceTree = "<group>"; };
+		C0BF7AFF2DD7CF9700D755FC /* simple.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = simple.hpp; sourceTree = "<group>"; };
+		C0BF7B012DD7CFAF00D755FC /* efficient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = efficient.cpp; sourceTree = "<group>"; };
+		C0BF7B022DD7CFAF00D755FC /* efficient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = efficient.hpp; sourceTree = "<group>"; };
+		C0BF7B052DD7D13B00D755FC /* distribution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = distribution.cpp; sourceTree = "<group>"; };
+		C0BF7B062DD7D13B00D755FC /* distribution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = distribution.hpp; sourceTree = "<group>"; };
+		C0BF7B092DD84B1B00D755FC /* helper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helper.hpp; sourceTree = "<group>"; };
+		C0E8D5AB2DBBF0E600060588 /* graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
+		C0E8D5AC2DBBF0E600060588 /* graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph.hpp; sourceTree = "<group>"; };
 		C0F4E5012BC5AB3500A7BAFC /* Design and Analysis of Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Design and Analysis of Algorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F4E5042BC5AB3500A7BAFC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +58,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C06677032BD71CC90070E89A /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C07F94412BC5B0C20042C66E /* utility.hpp */,
+				C07F94402BC5B0C20042C66E /* utility.cpp */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		C06677042BD71CE20070E89A /* advanced */ = {
+			isa = PBXGroup;
+			children = (
+				C0BF7B092DD84B1B00D755FC /* helper.hpp */,
+				C06677062BD71CFE0070E89A /* sort.hpp */,
+			);
+			path = advanced;
+			sourceTree = "<group>";
+		};
+		C0BF7AFC2DD7CD1E00D755FC /* sorts */ = {
+			isa = PBXGroup;
+			children = (
+				C0BF7AFE2DD7CF9700D755FC /* simple.cpp */,
+				C0BF7AFF2DD7CF9700D755FC /* simple.hpp */,
+				C0BF7B012DD7CFAF00D755FC /* efficient.cpp */,
+				C0BF7B022DD7CFAF00D755FC /* efficient.hpp */,
+				C0BF7B052DD7D13B00D755FC /* distribution.cpp */,
+				C0BF7B062DD7D13B00D755FC /* distribution.hpp */,
+			);
+			path = sorts;
+			sourceTree = "<group>";
+		};
+		C0BF7AFD2DD7CDB300D755FC /* graphs */ = {
+			isa = PBXGroup;
+			children = (
+				C0E8D5AB2DBBF0E600060588 /* graph.cpp */,
+				C0E8D5AC2DBBF0E600060588 /* graph.hpp */,
+			);
+			path = graphs;
+			sourceTree = "<group>";
+		};
+		C0BF7B042DD7CFD300D755FC /* heaps */ = {
+			isa = PBXGroup;
+			children = (
+				C07F94492BCA76970042C66E /* heap.cpp */,
+				C07F944A2BCA76970042C66E /* heap.hpp */,
+			);
+			path = heaps;
+			sourceTree = "<group>";
+		};
 		C0F4E4F82BC5AB3500A7BAFC = {
 			isa = PBXGroup;
 			children = (
@@ -66,12 +126,11 @@
 		C0F4E5032BC5AB3500A7BAFC /* Design and Analysis of Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				C07F94472BC952E10042C66E /* algorithm.hpp */,
-				C07F94462BC952E10042C66E /* algorithm.cpp */,
-				C07F944A2BCA76970042C66E /* heap.hpp */,
-				C07F94492BCA76970042C66E /* heap.cpp */,
-				C07F94412BC5B0C20042C66E /* utility.hpp */,
-				C07F94402BC5B0C20042C66E /* utility.cpp */,
+				C06677042BD71CE20070E89A /* advanced */,
+				C0BF7AFC2DD7CD1E00D755FC /* sorts */,
+				C0BF7B042DD7CFD300D755FC /* heaps */,
+				C0BF7AFD2DD7CDB300D755FC /* graphs */,
+				C06677032BD71CC90070E89A /* utilities */,
 				C0F4E5042BC5AB3500A7BAFC /* main.cpp */,
 			);
 			path = "Design and Analysis of Algorithms";
@@ -134,9 +193,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E8D5AD2DBBF0E600060588 /* graph.cpp in Sources */,
+				C0BF7B072DD7D13B00D755FC /* distribution.cpp in Sources */,
+				C0BF7B032DD7CFAF00D755FC /* efficient.cpp in Sources */,
 				C07F94422BC5B0C20042C66E /* utility.cpp in Sources */,
 				C0F4E5052BC5AB3500A7BAFC /* main.cpp in Sources */,
-				C07F94482BC952E10042C66E /* algorithm.cpp in Sources */,
+				C0BF7B002DD7CF9700D755FC /* simple.cpp in Sources */,
 				C07F944B2BCA76970042C66E /* heap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

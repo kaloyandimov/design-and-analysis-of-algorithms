@@ -28,4 +28,6 @@ void heapify(int arr[], int n, int i);
 
 void build_heap(int arr[], int n);
 
+void heap_sort(int arr[], int n);
+
 #endif /* heap_hpp */

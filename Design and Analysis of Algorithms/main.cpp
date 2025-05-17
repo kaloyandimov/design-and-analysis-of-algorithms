@@ -6,8 +6,17 @@
 //
 
 #include <iostream>
+#include <vector>
 
-int main(int argc, const char * argv[]) {
+#include "helper.hpp"
+#include "utility.hpp"
+#include "simple.hpp"
+#include "efficient.hpp"
+#include "distribution.hpp"
+#include "heap.hpp"
+#include "graph.hpp"
+
+int main(int argc, const char* argv[]) {
     
     return 0;
 }

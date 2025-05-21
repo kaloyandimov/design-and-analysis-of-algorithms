@@ -9,7 +9,6 @@
 #define graph_hpp
 
 #include <vector>
-#include <limits>
 
 enum class Color {
     white,
@@ -17,10 +16,18 @@ enum class Color {
     black
 };
 
-void bfs(const std::vector<std::vector<int>>& adj, int s);
+using AdjacencyList = std::vector<std::vector<int>>;
 
-void dfs(const std::vector<std::vector<int>>& adj, int s);
+void breadth_first_search(const AdjacencyList& adj);
 
-int count_components(const std::vector<std::vector<int>>& adj);
+void depth_first_search(const AdjacencyList& adj);
+
+int count_components(const AdjacencyList& adj);
+
+AdjacencyList transpose(const AdjacencyList& adj);
+
+std::vector<int> tarjan_topological_sort(const AdjacencyList& adj);
+
+std::vector<std::vector<int>> kosaraju_find_scc(const AdjacencyList& adj);
 
 #endif /* graph_hpp */

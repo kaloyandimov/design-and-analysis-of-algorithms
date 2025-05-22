@@ -8,13 +8,14 @@
 #include <iostream>
 #include <vector>
 
-#include "helper.hpp"
-#include "utility.hpp"
-#include "simple.hpp"
-#include "efficient.hpp"
 #include "distribution.hpp"
-#include "heap.hpp"
+#include "efficient.hpp"
 #include "graph.hpp"
+#include "heap.hpp"
+#include "helper.hpp"
+#include "simple.hpp"
+#include "tree.hpp"
+#include "utility.hpp"
 
 int main(int argc, const char* argv[]) {
     

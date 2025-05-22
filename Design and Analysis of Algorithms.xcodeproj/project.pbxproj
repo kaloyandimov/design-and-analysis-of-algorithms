@@ -12,6 +12,7 @@
 		C0BF7B002DD7CF9700D755FC /* simple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7AFE2DD7CF9700D755FC /* simple.cpp */; };
 		C0BF7B032DD7CFAF00D755FC /* efficient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7B012DD7CFAF00D755FC /* efficient.cpp */; };
 		C0BF7B072DD7D13B00D755FC /* distribution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7B052DD7D13B00D755FC /* distribution.cpp */; };
+		C0BF7B0D2DD85C5700D755FC /* tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0BF7B0B2DD85C5700D755FC /* tree.cpp */; };
 		C0E8D5AD2DBBF0E600060588 /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0E8D5AB2DBBF0E600060588 /* graph.cpp */; };
 		C0F4E5052BC5AB3500A7BAFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0F4E5042BC5AB3500A7BAFC /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,8 @@
 		C0BF7B052DD7D13B00D755FC /* distribution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = distribution.cpp; sourceTree = "<group>"; };
 		C0BF7B062DD7D13B00D755FC /* distribution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = distribution.hpp; sourceTree = "<group>"; };
 		C0BF7B092DD84B1B00D755FC /* helper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helper.hpp; sourceTree = "<group>"; };
+		C0BF7B0B2DD85C5700D755FC /* tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tree.cpp; sourceTree = "<group>"; };
+		C0BF7B0C2DD85C5700D755FC /* tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = tree.hpp; sourceTree = "<group>"; };
 		C0E8D5AB2DBBF0E600060588 /* graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
 		C0E8D5AC2DBBF0E600060588 /* graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = graph.hpp; sourceTree = "<group>"; };
 		C0F4E5012BC5AB3500A7BAFC /* Design and Analysis of Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Design and Analysis of Algorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +97,8 @@
 			children = (
 				C0E8D5AB2DBBF0E600060588 /* graph.cpp */,
 				C0E8D5AC2DBBF0E600060588 /* graph.hpp */,
+				C0BF7B0B2DD85C5700D755FC /* tree.cpp */,
+				C0BF7B0C2DD85C5700D755FC /* tree.hpp */,
 			);
 			path = graphs;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E8D5AD2DBBF0E600060588 /* graph.cpp in Sources */,
+				C0BF7B0D2DD85C5700D755FC /* tree.cpp in Sources */,
 				C0BF7B072DD7D13B00D755FC /* distribution.cpp in Sources */,
 				C0BF7B032DD7CFAF00D755FC /* efficient.cpp in Sources */,
 				C07F94422BC5B0C20042C66E /* utility.cpp in Sources */,

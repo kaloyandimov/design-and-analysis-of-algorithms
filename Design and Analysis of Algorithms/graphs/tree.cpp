@@ -53,7 +53,7 @@ void independence_number_rec(TreeNode* node, std::vector<int>& a, std::vector<in
     b[node->data] = sum_nodes_max_value(node->children, a, b);
 }
 
-int independence_number(const std::vector<std::vector<int>>& adj) {
+int independence_number(const AdjacencyList& adj) {
     if (adj.empty()) {
         return 0;
     }
@@ -100,7 +100,7 @@ void dominating_number_rec(TreeNode* node, std::vector<int>& a, std::vector<int>
     b[node->data] = std::min(1 + sum_b, sum_a);
 }
 
-int dominating_number(const std::vector<std::vector<int>>& adj) {
+int dominating_number(const AdjacencyList& adj) {
     if (adj.empty()) {
         return 0;
     }

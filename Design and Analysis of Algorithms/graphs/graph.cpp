@@ -7,6 +7,7 @@
 
 #include <queue>
 
+#include "helper.hpp"
 #include "graph.hpp"
 
 void breadth_first_search_visit(const AdjacencyList& adj, std::vector<int>& d, std::vector<Color>& color, std::vector<int>& pi, int s) {
@@ -135,6 +136,59 @@ std::vector<int> tarjan_topological_sort(const AdjacencyList& adj) {
     return std::vector(order.crbegin(), order.crend());
 }
 
+std::vector<int> calculate_in_degrees(const AdjacencyList& adj) {
+    std::vector<int> in_degree(adj.size());
+    
+    for (const std::vector<int>& ys : adj) {
+        for (int y : ys) {
+            in_degree[y]++;
+        }
+    }
+    
+    return in_degree;
+}
+
+std::optional<std::vector<int>> kahn_topological_sort(const AdjacencyList& adj) {
+    int n = static_cast<int>(adj.size());
+    std::vector<int> in_degree = calculate_in_degrees(adj);
+    std::vector<Color> color(n, Color::white);
+    std::vector<int> order;
+    std::queue<int> q;
+    
+    order.reserve(n);
+    
+    for (int i = 0; i < n; i++) {
+        if (in_degree[i] == 0) {
+            color[i] = Color::gray;
+            q.push(i);
+        }
+    }
+    
+    while (!q.empty()) {
+        int x = q.front();
+        q.pop();
+        
+        order.push_back(x);
+        
+        for (int y : adj[x]) {
+            in_degree[y]--;
+            
+            if (in_degree[y] == 0) {
+                color[y] = Color::gray;
+                q.push(y);
+            }
+        }
+        
+        color[x] = Color::black;
+    }
+    
+    if (order.size() < n) {
+        return std::nullopt;
+    }
+    
+    return std::optional<std::vector<int>>{order};
+}
+
 void kosaraju_find_scc_rec(const AdjacencyList& adj, std::vector<Color>& colors, std::vector<int>& component, int x) {
     colors[x] = Color::gray;
     component.push_back(x);
@@ -164,4 +218,97 @@ std::vector<std::vector<int>> kosaraju_find_scc(const AdjacencyList& adj) {
     }
     
     return components;
+}
+
+int find_cut_vertices_rec(const AdjacencyList& adj, std::vector<int>& level, std::vector<Color>& color, std::vector<int>& cut_vertices, int x, int l) {
+    bool is_cut_vertex = false;
+    bool is_root = false;
+    int minback = l;
+    int count = 0;
+    
+    if (l == 0) {
+        is_root = true;
+    }
+    
+    color[x] = Color::gray;
+    level[x] = l;
+    
+    for (int y : adj[x]) {
+        if (color[y] == Color::white) {
+            int b = find_cut_vertices_rec(adj, level, color, cut_vertices, y, l + 1);
+            
+            if (b >= level[x] && !is_root) {
+                is_cut_vertex = true;
+            }
+            
+            minback = std::min(minback, b);
+            count++;
+        } else if (color[y] == Color::gray) {
+            if (level[y] < minback && level[y] != level[x] - 1) {
+                minback = level[y];
+            }
+        }
+    }
+    
+    if (is_cut_vertex || (is_root && count >= 2)) {
+        cut_vertices.push_back(x);
+    }
+    
+    color[x] = Color::black;
+    
+    return minback;
+}
+
+std::vector<int> find_cut_vertices(const AdjacencyList& adj) {
+    int n = static_cast<int>(adj.size());
+    std::vector<Color> color(n, Color::white);
+    std::vector<int> level(n);
+    std::vector<int> cut_vertices;
+    
+    int x = get_random_number(n - 1);
+    
+    find_cut_vertices_rec(adj, level, color, cut_vertices, x, 0);
+    
+    return cut_vertices;
+}
+
+int find_cut_edges_rec(const AdjacencyList& adj, std::vector<int>& level, std::vector<Color>& colors, std::vector<std::pair<int, int>>& cut_edges, int x, int l) {
+    int minback = l;
+    
+    colors[x] = Color::gray;
+    level[x] = l;
+    
+    for (int y : adj[x]) {
+        if (colors[y] == Color::white) {
+            int b = find_cut_edges_rec(adj, level, colors, cut_edges, y, l + 1);
+            
+            if (b > level[x]) {
+                cut_edges.emplace_back(x, y);
+            } else {
+                minback = std::min(minback, b);
+            }
+        }
+        else if (colors[y] == Color::gray) {
+            if (level[y] < minback && level[y] != level[x] - 1) {
+                minback = level[y];
+            }
+        }
+    }
+    
+    colors[x] = Color::black;
+    
+    return minback;
+}
+
+std::vector<std::pair<int, int>> find_cut_edges(const AdjacencyList& adj) {
+    int n = static_cast<int>(adj.size());
+    std::vector<Color> color(n, Color::white);
+    std::vector<int> level(n);
+    std::vector<std::pair<int, int>> cut_edges;
+    
+    int x = get_random_number(n - 1);
+    
+    find_cut_edges_rec(adj, level, color, cut_edges, x, 0);
+    
+    return cut_edges;
 }

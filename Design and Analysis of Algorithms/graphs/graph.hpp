@@ -8,6 +8,8 @@
 #ifndef graph_hpp
 #define graph_hpp
 
+#include <optional>
+#include <utility>
 #include <vector>
 
 enum class Color {
@@ -28,6 +30,12 @@ AdjacencyList transpose(const AdjacencyList& adj);
 
 std::vector<int> tarjan_topological_sort(const AdjacencyList& adj);
 
+std::optional<std::vector<int>> kahn_topological_sort(const AdjacencyList& adj);
+
 std::vector<std::vector<int>> kosaraju_find_scc(const AdjacencyList& adj);
+
+std::vector<int> find_cut_vertices(const AdjacencyList& adj);
+
+std::vector<std::pair<int, int>> find_cut_edges(const AdjacencyList& adj);
 
 #endif /* graph_hpp */

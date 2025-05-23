@@ -109,27 +109,27 @@ AdjacencyList transpose(const AdjacencyList& adj) {
     return transposed;
 }
 
-void tarjan_topological_sort_rec(const AdjacencyList& adj, std::vector<Color>& colors, std::vector<int>& order, int x) {
-    colors[x] = Color::gray;
+void tarjan_topological_sort_rec(const AdjacencyList& adj, std::vector<Color>& color, std::vector<int>& order, int x) {
+    color[x] = Color::gray;
     
     for (int y : adj[x]) {
-        if (colors[y] == Color::white) {
-            tarjan_topological_sort_rec(adj, colors, order, y);
+        if (color[y] == Color::white) {
+            tarjan_topological_sort_rec(adj, color, order, y);
         }
     }
     
-    colors[x] = Color::black;
+    color[x] = Color::black;
     order.push_back(x);
 }
 
 std::vector<int> tarjan_topological_sort(const AdjacencyList& adj) {
     int n = static_cast<int>(adj.size());
-    std::vector<Color> colors(n, Color::white);
+    std::vector<Color> color(n, Color::white);
     std::vector<int> order;
     
     for (int i = 0; i < n; i++) {
-        if (colors[i] == Color::white) {
-            tarjan_topological_sort_rec(adj, colors, order, i);
+        if (color[i] == Color::white) {
+            tarjan_topological_sort_rec(adj, color, order, i);
         }
     }
     
@@ -189,30 +189,30 @@ std::optional<std::vector<int>> kahn_topological_sort(const AdjacencyList& adj) 
     return std::optional<std::vector<int>>{order};
 }
 
-void kosaraju_find_scc_rec(const AdjacencyList& adj, std::vector<Color>& colors, std::vector<int>& component, int x) {
-    colors[x] = Color::gray;
+void kosaraju_find_scc_rec(const AdjacencyList& adj, std::vector<Color>& color, std::vector<int>& component, int x) {
+    color[x] = Color::gray;
     component.push_back(x);
     
     for (int y : adj[x]) {
-        if (colors[y] == Color::white) {
-            kosaraju_find_scc_rec(adj, colors, component, y);
+        if (color[y] == Color::white) {
+            kosaraju_find_scc_rec(adj, color, component, y);
         }
     }
     
-    colors[x] = Color::black;
+    color[x] = Color::black;
 }
 
 std::vector<std::vector<int>> kosaraju_find_scc(const AdjacencyList& adj) {
     AdjacencyList transposed = transpose(adj);
     std::vector<int> order = tarjan_topological_sort(adj);
-    std::vector<Color> colors(adj.size(), Color::white);
+    std::vector<Color> color(adj.size(), Color::white);
     std::vector<std::vector<int>> components;
     std::vector<int> component;
     
     for (int x : order) {
-        if (colors[x] == Color::white) {
+        if (color[x] == Color::white) {
             component.clear();
-            kosaraju_find_scc_rec(transposed, colors, component, x);
+            kosaraju_find_scc_rec(transposed, color, component, x);
             components.push_back(component);
         }
     }
@@ -272,15 +272,15 @@ std::vector<int> find_cut_vertices(const AdjacencyList& adj) {
     return cut_vertices;
 }
 
-int find_cut_edges_rec(const AdjacencyList& adj, std::vector<int>& level, std::vector<Color>& colors, std::vector<std::pair<int, int>>& cut_edges, int x, int l) {
+int find_cut_edges_rec(const AdjacencyList& adj, std::vector<int>& level, std::vector<Color>& color, std::vector<std::pair<int, int>>& cut_edges, int x, int l) {
     int minback = l;
     
-    colors[x] = Color::gray;
+    color[x] = Color::gray;
     level[x] = l;
     
     for (int y : adj[x]) {
-        if (colors[y] == Color::white) {
-            int b = find_cut_edges_rec(adj, level, colors, cut_edges, y, l + 1);
+        if (color[y] == Color::white) {
+            int b = find_cut_edges_rec(adj, level, color, cut_edges, y, l + 1);
             
             if (b > level[x]) {
                 cut_edges.emplace_back(x, y);
@@ -288,14 +288,14 @@ int find_cut_edges_rec(const AdjacencyList& adj, std::vector<int>& level, std::v
                 minback = std::min(minback, b);
             }
         }
-        else if (colors[y] == Color::gray) {
+        else if (color[y] == Color::gray) {
             if (level[y] < minback && level[y] != level[x] - 1) {
                 minback = level[y];
             }
         }
     }
     
-    colors[x] = Color::black;
+    color[x] = Color::black;
     
     return minback;
 }
